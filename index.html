@@ -1,7 +1,30 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
+    <meta charset=    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+        
+        // Firebase 設定 (您需要替換為自己的設定)
+        const firebaseConfig = {
+            // 您的 Firebase 專案設定會在這裡
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT.appspot.com",
+            messagingSenderId: "YOUR_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+        
+        window.firebaseApp = initializeApp(firebaseConfig);
+        window.db = getFirestore(window.firebaseApp);
+    </script>
+
+    <!-- Prism.js 語法高亮 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>線上程式碼剪貼簿</title>
     <link rel="stylesheet" href="style.css">
@@ -33,9 +56,32 @@
 
             <div class="snippet-controls">
                 <input type="text" id="snippetTitle" placeholder="程式碼片段標題..." maxlength="100">
-                <button id="saveBtn">💾 儲存</button>
+                <button id="saveBtn">💾 儲存到本地</button>
+                <button id="shareBtn">🌐 分享到線上</button>
                 <button id="clearBtn">🗑️ 清空</button>
                 <button id="copyBtn">📋 複製</button>
+            </div>
+        </div>
+
+        <div class="online-controls">
+            <h3>🌐 線上程式碼片段</h3>
+            <div class="online-controls-bar">
+                <input type="text" id="searchInput" placeholder="搜尋線上程式碼..." maxlength="100">
+                <button id="searchBtn">🔍 搜尋</button>
+                <button id="loadOnlineBtn">📥 載入最新</button>
+                <select id="languageFilter">
+                    <option value="">所有語言</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="python">Python</option>
+                    <option value="java">Java</option>
+                    <option value="cpp">C++</option>
+                    <option value="csharp">C#</option>
+                    <option value="php">PHP</option>
+                    <option value="sql">SQL</option>
+                    <option value="json">JSON</option>
+                </select>
             </div>
         </div>
 
@@ -44,10 +90,19 @@
             <pre id="codePreview"><code id="codeHighlight"></code></pre>
         </div>
 
-        <div class="saved-snippets">
-            <h3>已儲存的程式碼片段</h3>
-            <div id="snippetsList" class="snippets-list">
-                <!-- 動態載入的程式碼片段 -->
+        <div class="snippets-container">
+            <div class="online-snippets">
+                <h3>🌐 線上共享程式碼片段</h3>
+                <div id="onlineSnippetsList" class="snippets-list">
+                    <!-- 動態載入的線上程式碼片段 -->
+                </div>
+            </div>
+
+            <div class="saved-snippets">
+                <h3>💾 本地儲存的程式碼片段</h3>
+                <div id="snippetsList" class="snippets-list">
+                    <!-- 動態載入的本地程式碼片段 -->
+                </div>
             </div>
         </div>
     </div>
@@ -72,6 +127,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
     
-    <script src="script.js"></script>
+    <script src="script-online.js"></script>
 </body>
 </html>

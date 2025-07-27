@@ -137,6 +137,144 @@ button {
     transform: translateY(-2px);
 }
 
+#shareBtn {
+    background: #FF5722;
+    color: white;
+}
+
+#shareBtn:hover {
+    background: #E64A19;
+    transform: translateY(-2px);
+}
+
+.online-controls {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.online-controls h3 {
+    margin-bottom: 15px;
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.online-controls-bar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#searchInput {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px 15px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+#languageFilter {
+    padding: 10px 12px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    background: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+#languageFilter:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+#searchBtn {
+    background: #9C27B0;
+    color: white;
+}
+
+#searchBtn:hover {
+    background: #7B1FA2;
+    transform: translateY(-2px);
+}
+
+#loadOnlineBtn {
+    background: #00BCD4;
+    color: white;
+}
+
+#loadOnlineBtn:hover {
+    background: #0097A7;
+    transform: translateY(-2px);
+}
+
+.snippets-container {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.online-snippets,
+.saved-snippets {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.online-snippets h3,
+.saved-snippets h3 {
+    margin-bottom: 20px;
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.online-snippet {
+    border-left: 4px solid #FF5722;
+}
+
+.local-snippet {
+    border-left: 4px solid #4CAF50;
+}
+
+.snippet-stats {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.toast.info {
+    background: #2196F3;
+}
+
+/* 響應式設計更新 */
+@media (max-width: 768px) {
+    .snippets-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .online-controls-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    #searchInput {
+        min-width: auto;
+    }
+}
+
 .editor-container {
     background: white;
     border-radius: 10px;
