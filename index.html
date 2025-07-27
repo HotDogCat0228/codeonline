@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>線上程式碼剪貼簿</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 線上程式碼剪貼簿</h1>
+            <p>簡單、快速的程式碼儲存與分享工具</p>
+        </header>
+
+        <div class="controls">
+            <div class="language-selector">
+                <label for="language">程式語言：</label>
+                <select id="language">
+                    <option value="javascript">JavaScript</option>
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="python">Python</option>
+                    <option value="java">Java</option>
+                    <option value="cpp">C++</option>
+                    <option value="csharp">C#</option>
+                    <option value="php">PHP</option>
+                    <option value="sql">SQL</option>
+                    <option value="json">JSON</option>
+                </select>
+            </div>
+
+            <div class="snippet-controls">
+                <input type="text" id="snippetTitle" placeholder="程式碼片段標題..." maxlength="100">
+                <button id="saveBtn">💾 儲存</button>
+                <button id="clearBtn">🗑️ 清空</button>
+                <button id="copyBtn">📋 複製</button>
+            </div>
+        </div>
+
+        <div class="editor-container">
+            <textarea id="codeEditor" placeholder="在這裡輸入您的程式碼..."></textarea>
+            <pre id="codePreview"><code id="codeHighlight"></code></pre>
+        </div>
+
+        <div class="saved-snippets">
+            <h3>已儲存的程式碼片段</h3>
+            <div id="snippetsList" class="snippets-list">
+                <!-- 動態載入的程式碼片段 -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>使用瀏覽器本地儲存，資料僅保存在您的裝置上</p>
+    </footer>
+
+    <!-- Toast 通知 -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Prism.js 語法高亮 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-html.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
